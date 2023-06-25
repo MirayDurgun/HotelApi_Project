@@ -11,7 +11,7 @@ namespace HotelProject.BusinessLayer.Abstract
 		void TInsert(T t);
 		void TDelete(T t);
 		void TUpdate(T t);
-		List<T> GetList();
+		List<T> TGetList();
 		T TGetByID(int id);
 	}
 }

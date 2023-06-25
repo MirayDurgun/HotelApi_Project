@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HotelProject.BusinessLayer.Abstract;
 using HotelProject.DataAccessLayer.Abstract;
+using HotelProject.DataAccessLayer.EntityFramework;
 using HotelProject.EntityLayer.Concrete;
 
 namespace HotelProject.BusinessLayer.Concrete
@@ -18,11 +19,6 @@ namespace HotelProject.BusinessLayer.Concrete
 			_serviceDal = serviceDal;
 		}
 
-		public List<Service> GetList()
-		{
-			return _serviceDal.GetList();
-		}
-
 		public void TDelete(Service t)
 		{
 			_serviceDal.Delete(t);
@@ -31,6 +27,11 @@ namespace HotelProject.BusinessLayer.Concrete
 		public Service TGetByID(int id)
 		{
 			return _serviceDal.GetByID(id);
+		}
+
+		public List<Service> TGetList()
+		{
+			return _serviceDal.GetList();
 		}
 
 		public void TInsert(Service t)

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HotelProject.BusinessLayer.Abstract;
 using HotelProject.DataAccessLayer.Abstract;
+using HotelProject.DataAccessLayer.EntityFramework;
 using HotelProject.EntityLayer.Concrete;
 
 namespace HotelProject.BusinessLayer.Concrete
@@ -18,11 +19,6 @@ namespace HotelProject.BusinessLayer.Concrete
 			_subscribeDal = subscribeDal;
 		}
 
-		public List<Subscribe> GetList()
-		{
-			return _subscribeDal.GetList();
-		}
-
 		public void TDelete(Subscribe t)
 		{
 			_subscribeDal.Delete(t);
@@ -31,6 +27,11 @@ namespace HotelProject.BusinessLayer.Concrete
 		public Subscribe TGetByID(int id)
 		{
 			return _subscribeDal.GetByID(id);
+		}
+
+		public List<Subscribe> TGetList()
+		{
+			return _subscribeDal.GetList();
 		}
 
 		public void TInsert(Subscribe t)
