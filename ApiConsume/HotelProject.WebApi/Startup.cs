@@ -18,59 +18,71 @@ using Microsoft.OpenApi.Models;
 
 namespace HotelProject.WebApi
 {
-	public class Startup
-	{
-		public Startup(IConfiguration configuration)
-		{
-			Configuration = configuration;
-		}
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
 
-		public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; }
 
-		// This method gets called by the runtime. Use this method to add services to the container.
-		public void ConfigureServices(IServiceCollection services)
-		{
-			services.AddDbContext<Context>();
-			services.AddScoped<IStaffDal, EfStaffDal>();
-			services.AddScoped<IStaffService, StaffManager>();
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<Context>();
+            services.AddScoped<IStaffDal, EfStaffDal>();
+            services.AddScoped<IStaffService, StaffManager>();
 
-			services.AddScoped<IServiceDal, EfServiceDal>();
-			services.AddScoped<IServiceService, ServiceManager>();
+            services.AddScoped<IServiceDal, EfServiceDal>();
+            services.AddScoped<IServiceService, ServiceManager>();
 
-			services.AddScoped<IRoomDal, EfRoomDal>();
-			services.AddScoped<IRoomService, RoomManager>();
+            services.AddScoped<IRoomDal, EfRoomDal>();
+            services.AddScoped<IRoomService, RoomManager>();
 
-			services.AddScoped<ISubscribeDal, EfSubscribeDal>();
-			services.AddScoped<ISubscribeService, SubscribeManager>();
+            services.AddScoped<ISubscribeDal, EfSubscribeDal>();
+            services.AddScoped<ISubscribeService, SubscribeManager>();
 
-			services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-			services.AddScoped<ITestimonialService, TestimonialManager>();
+            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+            services.AddScoped<ITestimonialService, TestimonialManager>();
 
-			services.AddControllers();
-			services.AddSwaggerGen(c =>
-			{
-				c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelProject.WebApi", Version = "v1" });
-			});
-		}
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelProject.WebApi", Version = "v1" });
+            });
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-		{
-			if (env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-				app.UseSwagger();
-				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HotelProject.WebApi v1"));
-			}
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("OtelApiCors", opts =>
+                {
+                    opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); //herhangi bir kaynaða izin verir, herhangi baþlýða izin verir
+                                                                             //ve herhangi bir metoda izin verir
+                }); //isim verdik
+            }); //hemen aþaðýda verdiðimiz ismi kullanýyoruz
 
-			app.UseRouting();
+        }
 
-			app.UseAuthorization();
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HotelProject.WebApi v1"));
+            }
 
-			app.UseEndpoints(endpoints =>
-			{
-				endpoints.MapControllers();
-			});
-		}
-	}
+            app.UseRouting();
+
+            app.UseCors("OtelApiCors");
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+        }
+    }
 }
