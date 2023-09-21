@@ -76,13 +76,28 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"http://localhost:2077/api/Staff/{id}");
-            //Güncelleyeceğimiz verileri GetAsync ile önce getiryoruz
+            //Güncelleyeceğimiz verileri GetAsync ile önce getiriyoruz
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 //veri listeleme yapıyoruz
                 var values = JsonConvert.DeserializeObject<UpdateStaffViewModel>(jsonData);
                 return View(values);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateStaff(UpdateStaffViewModel updateStaffViewModel)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateStaffViewModel);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("http://localhost:2077/api/Staff/", stringContent);
+            //PutAsync bu şekilde tanımlanır $ ve idye gerek yok
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
             }
             return View();
         }
