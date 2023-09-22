@@ -28,7 +28,7 @@ namespace HotelProject.WebApi.Controllers
 			_testimonialService.TInsert(testimonial);
 			return Ok();
 		}
-		[HttpDelete] //verileri silme 
+		[HttpDelete("{id}")] //verileri silme 
 		public IActionResult DeleteTestimonial(int id)
 		{
 			var values = _testimonialService.TGetByID(id);
