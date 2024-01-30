@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
+    <Folder Include="Dtos\ServiceDto\" />
+    <Folder Include="Dtos\SubscribeDto\" />
+    <Folder Include="Dtos\StaffDto\" />
   </ItemGroup>
 
 </Project>
