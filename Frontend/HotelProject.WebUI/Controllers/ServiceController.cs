@@ -1,4 +1,5 @@
 ﻿using HotelProject.WebUI.Dtos.ServiceDto;
+using HotelProject.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -68,6 +69,42 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
             //olmazsa viewvi döndürsün
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateService(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:2077/api/Service/{id}");
+            //Güncelleyeceğimiz verileri GetAsync ile önce getiriyoruz
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                //veri listeleme yapıyoruz
+                var values = JsonConvert.DeserializeObject<UpdateServiceDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateService(UpdateServiceDto updateServiceDto)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateServiceDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("http://localhost:2077/api/Service/", stringContent);
+            //PutAsync bu şekilde tanımlanır $ ve idye gerek yok
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }
