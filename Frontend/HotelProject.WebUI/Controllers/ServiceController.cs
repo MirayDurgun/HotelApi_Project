@@ -55,5 +55,19 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+
+
+        public async Task<IActionResult> DeleteService(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"http://localhost:2077/api/Service/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                //Başarılı olursa index'e dönsün 
+                return RedirectToAction("Index");
+            }
+            return View();
+            //olmazsa viewvi döndürsün
+        }
     }
 }
