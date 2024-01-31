@@ -44,6 +44,7 @@ namespace HotelProject.WebUI.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> AddStaff(AddStaffViewModel model)
         {
