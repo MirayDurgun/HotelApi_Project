@@ -97,8 +97,10 @@ namespace HotelProject.WebUI.Controllers
             }
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateServiceDto);
+            //JSON formatına dönüştür
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:2077/api/Service/", stringContent);
+            //JSON verisi, HTTP isteği için uygun formatta olacak şekilde hazırla
+           var responseMessage = await client.PutAsync("http://localhost:2077/api/Service/", stringContent);
             //PutAsync bu şekilde tanımlanır $ ve idye gerek yok
             if (responseMessage.IsSuccessStatusCode)
             {
