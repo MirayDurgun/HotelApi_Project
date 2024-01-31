@@ -6,6 +6,7 @@ namespace HotelProject.WebApi.Mapping
 {
     public class AutoMapperConfig : Profile
     //Dto ile entityleri bağlayacağımız sınıf
+    //Profile sınıfı, AutoMapper konfigürasyonunu tanımlamak için kullanılan bir sınıftır. 
 
     {
         public AutoMapperConfig()
