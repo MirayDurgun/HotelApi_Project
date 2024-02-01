@@ -2,6 +2,7 @@
 using HotelProject.WebUI.Dtos.RegisterDto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace HotelProject.WebUI.Controllers
 {
@@ -21,8 +22,28 @@ namespace HotelProject.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(CreateNewUserDto createNewUserDto)
+        public async Task<IActionResult> Index(CreateNewUserDto createNewUserDto)
         {
+            if (!ModelState.IsValid) //model geçerli değilse hata döndürmesi için mappingte tanımlamak gerekir
+            {
+                return View();
+            }
+            var appUser = new AppUser()
+            {
+
+                Name = createNewUserDto.Name,
+                Email = createNewUserDto.Mail,
+                Surname = createNewUserDto.Surname,
+                UserName = createNewUserDto.Username
+
+            };
+
+            var result = await _userManager.CreateAsync(appUser, createNewUserDto.Password); //CreateAsync identity kütüphanesinde yeni kayıt oluşturmak için kullanılır
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
             return View();
         }
     }
