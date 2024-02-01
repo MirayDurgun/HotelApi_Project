@@ -1,14 +1,13 @@
-﻿using System;
+﻿using HotelProject.EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HotelProject.EntityLayer.Concrete;
 
 namespace HotelProject.DataAccessLayer.Abstract
 {
-	public interface IRoomDal:IGenericDal<Room>
-	{
-        int RoomCount();
+    public interface IAboutDal:IGenericDal<About>
+    {
     }
 }
