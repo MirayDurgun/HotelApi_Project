@@ -45,6 +45,11 @@ namespace HotelProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddService(CreateServiceDto createServiceDto)
         {
+            if (!ModelState.IsValid)
+            // model geçerli değilse (ModelState.IsValid false ise), bu durumda bir hata olduğunu varsayarak doğrudan View'a geri döner. Bu durumda, model geçerlilik kurallarına uymayan veri girişleri bulunmuş demektir.
+            {
+                return View();
+            }
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createServiceDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
