@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HotelProject.BusinessLayer.Concrete
 {
-    public class AboutManager:IAboutService
+    public class AboutManager : IAboutService
     {
         private readonly IAboutDal _aboutDal;
 
@@ -35,12 +35,12 @@ namespace HotelProject.BusinessLayer.Concrete
 
         public void TInsert(About t)
         {
-           _aboutDal.Insert(t);
+            _aboutDal.Insert(t);
         }
 
         public void TUpdate(About t)
         {
-            _aboutDal.Update(t);    
+            _aboutDal.Update(t);
         }
     }
 }

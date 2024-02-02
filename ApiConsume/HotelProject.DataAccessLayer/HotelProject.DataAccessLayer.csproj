@@ -23,4 +23,8 @@
     <ProjectReference Include="..\HotelProject.EntityLayer\HotelProject.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\NewFolder\" />
+  </ItemGroup>
+
 </Project>

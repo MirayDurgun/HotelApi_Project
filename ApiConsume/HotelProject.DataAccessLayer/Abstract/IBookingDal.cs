@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using HotelProject.EntityLayer.Concrete;
 
-namespace HotelProject.BusinessLayer.Abstract
+namespace HotelProject.DataAccessLayer.Abstract
 {
-    public interface IRoomService : IGenericService<Room>
+    public interface IBookingDal : IGenericDal<Booking>
     {
-        int TRoomCount();
     }
 }

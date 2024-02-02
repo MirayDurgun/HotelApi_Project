@@ -10,38 +10,38 @@ using HotelProject.EntityLayer.Concrete;
 
 namespace HotelProject.BusinessLayer.Concrete
 {
-	public class ServiceManager : IServiceService
-	{
-		private readonly IServiceDal _serviceDal;
+    public class ServiceManager : IServiceService
+    {
+        private readonly IServiceDal _serviceDal;
 
-		public ServiceManager(IServiceDal serviceDal)
-		{
-			_serviceDal = serviceDal;
-		}
+        public ServiceManager(IServiceDal serviceDal)
+        {
+            _serviceDal = serviceDal;
+        }
 
-		public void TDelete(Service t)
-		{
-			_serviceDal.Delete(t);
-		}
+        public void TDelete(Service t)
+        {
+            _serviceDal.Delete(t);
+        }
 
-		public Service TGetByID(int id)
-		{
-			return _serviceDal.GetByID(id);
-		}
+        public Service TGetByID(int id)
+        {
+            return _serviceDal.GetByID(id);
+        }
 
-		public List<Service> TGetList()
-		{
-			return _serviceDal.GetList();
-		}
+        public List<Service> TGetList()
+        {
+            return _serviceDal.GetList();
+        }
 
-		public void TInsert(Service t)
-		{
-			_serviceDal.Insert(t);
-		}
+        public void TInsert(Service t)
+        {
+            _serviceDal.Insert(t);
+        }
 
-		public void TUpdate(Service t)
-		{
-			_serviceDal.Update(t);
-		}
-	}
+        public void TUpdate(Service t)
+        {
+            _serviceDal.Update(t);
+        }
+    }
 }

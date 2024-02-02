@@ -11,3 +11,4 @@ namespace HotelProject.BusinessLayer.Abstract
 	{
 	}
 }
+
