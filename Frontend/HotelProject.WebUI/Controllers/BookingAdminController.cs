@@ -38,14 +38,12 @@ namespace HotelProject.WebUI.Controllers
 
         public async Task<IActionResult> ApprovedReservation(ApprovedReservationDto approvedReservationDto)
         {
-            approvedReservationDto.Status = "Onaylandı";
-
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(approvedReservationDto);
             //JSON formatına dönüştür
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             //JSON verisi, HTTP isteği için uygun formatta olacak şekilde hazırla
-            var responseMessage = await client.PutAsync("http://localhost:2077/api/Booking/", stringContent);
+            var responseMessage = await client.PutAsync("http://localhost:2077/api/Booking//api/Booking/b", stringContent);
             //PutAsync bu şekilde tanımlanır $ ve idye gerek yok
             if (responseMessage.IsSuccessStatusCode)
             {
