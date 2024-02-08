@@ -21,12 +21,14 @@ namespace HotelProject.WebApi.Controllers
             var values = _bookingService.TGetList();
             return Ok(values);
         }
+
         [HttpPost] //yeni veri ekleme
         public IActionResult AddService(Booking booking)
         {
             _bookingService.TInsert(booking);
             return Ok();
         }
+
         [HttpDelete("{id}")] //verileri silme 
         public IActionResult DeleteService(int id)
         {
@@ -34,17 +36,26 @@ namespace HotelProject.WebApi.Controllers
             _bookingService.TDelete(values);
             return Ok();
         }
+
         [HttpPut] //verileri günceller
         public IActionResult UpdateService(Booking booking)
         {
             _bookingService.TUpdate(booking);
             return Ok();
         }
+
         [HttpGet("{id}")] //dışarıdan bir id parametresi alır
         public IActionResult GetService(int id)
         {
             var values = _bookingService.TGetByID(id);
             return Ok(values);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateReservation(Booking booking)
+        {
+            _bookingService.TBookinStatusChangeApproved(booking);
+            return Ok();
         }
     }
 }
