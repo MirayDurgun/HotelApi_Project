@@ -9,17 +9,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{13
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{A5FB5322-F39B-4F3B-AE7C-624AFB40623C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.WebApi", "ApiConsume\HotelProject.WebApi\HotelProject.WebApi.csproj", "{1C85415C-A9E6-4949-976E-3A4D6034A587}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.WebApi", "ApiConsume\HotelProject.WebApi\HotelProject.WebApi.csproj", "{1C85415C-A9E6-4949-976E-3A4D6034A587}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.EntityLayer", "ApiConsume\HotelProject.EntityLayer\HotelProject.EntityLayer.csproj", "{A24F64A0-B827-46D4-9418-82306C931E46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.EntityLayer", "ApiConsume\HotelProject.EntityLayer\HotelProject.EntityLayer.csproj", "{A24F64A0-B827-46D4-9418-82306C931E46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.DataAccessLayer", "ApiConsume\HotelProject.DataAccessLayer\HotelProject.DataAccessLayer.csproj", "{E35CC559-9A54-4214-B24E-391739EDF3D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.DataAccessLayer", "ApiConsume\HotelProject.DataAccessLayer\HotelProject.DataAccessLayer.csproj", "{E35CC559-9A54-4214-B24E-391739EDF3D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.BusinessLayer", "ApiConsume\HotelProject.BusinessLayer\HotelProject.BusinessLayer.csproj", "{8E741B20-D03A-4E37-976E-548EBE2AFD2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.BusinessLayer", "ApiConsume\HotelProject.BusinessLayer\HotelProject.BusinessLayer.csproj", "{8E741B20-D03A-4E37-976E-548EBE2AFD2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.DtoLayer", "ApiConsume\HotelProject.DTO\HotelProject.DtoLayer.csproj", "{AB9CB623-06F1-45A9-8111-C3BAF13E83E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.DtoLayer", "ApiConsume\HotelProject.DTO\HotelProject.DtoLayer.csproj", "{AB9CB623-06F1-45A9-8111-C3BAF13E83E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.WebUI", "Frontend\HotelProject.WebUI\HotelProject.WebUI.csproj", "{D1C648F0-EF84-4B0E-BB8C-FB9429A65753}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.WebUI", "Frontend\HotelProject.WebUI\HotelProject.WebUI.csproj", "{D1C648F0-EF84-4B0E-BB8C-FB9429A65753}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{704FFDEA-F944-4A89-9B32-E02AFAAC7E49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RapidApiConsume", "RapidApiConsume\RapidApiConsume.csproj", "{F897404A-FE1B-45C5-9420-1456F8A211DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{D1C648F0-EF84-4B0E-BB8C-FB9429A65753}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C648F0-EF84-4B0E-BB8C-FB9429A65753}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C648F0-EF84-4B0E-BB8C-FB9429A65753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F897404A-FE1B-45C5-9420-1456F8A211DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F897404A-FE1B-45C5-9420-1456F8A211DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F897404A-FE1B-45C5-9420-1456F8A211DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F897404A-FE1B-45C5-9420-1456F8A211DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,7 @@ Global
 		{8E741B20-D03A-4E37-976E-548EBE2AFD2D} = {50D2ADFA-7561-4014-9232-856B2ED5AA2E}
 		{AB9CB623-06F1-45A9-8111-C3BAF13E83E3} = {50D2ADFA-7561-4014-9232-856B2ED5AA2E}
 		{D1C648F0-EF84-4B0E-BB8C-FB9429A65753} = {138153CB-CCD6-4FE2-8765-B78A59E9E2CD}
+		{F897404A-FE1B-45C5-9420-1456F8A211DF} = {704FFDEA-F944-4A89-9B32-E02AFAAC7E49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A9E010C5-F560-4EE1-A255-36C5EABA9E48}
