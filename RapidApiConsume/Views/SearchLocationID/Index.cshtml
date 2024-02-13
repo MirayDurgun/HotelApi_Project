@@ -6,16 +6,18 @@
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-@using (Html.BeginForm("Index", "SearchLocationID", FormMethod.Post))
-{
-    <label>Şehir adını giriniz</label>
-    <input type="text" class="form-control" name="cityName" />
-    <br />
-    <button class="btn btn-primary">Şehir ID Bul</button>
-}
+
 
 <div class="container">
     <br /><br />
+    @using (Html.BeginForm("Index", "SearchLocationID", FormMethod.Post))
+    {
+        <label>Şehir adını giriniz</label>
+        <input type="text" class="form-control" name="cityName" />
+        <br />
+        <button class="btn btn-primary">Şehir ID Bul</button>
+    }
+
     <table class="table table-bordered">
 
         <tr>
