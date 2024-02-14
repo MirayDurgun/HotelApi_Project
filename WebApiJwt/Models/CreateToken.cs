@@ -6,7 +6,7 @@ namespace WebApiJwt.Models
 {
     public class CreateToken
     {
-        public void TokenCreate()
+        public string TokenCreate()
         {
             // Anahtar olarak kullanılacak string değerini UTF-8 formatına dönüştürür
             var bytes = Encoding.UTF8.GetBytes("aspnetcoreapiapi");
@@ -32,7 +32,7 @@ namespace WebApiJwt.Models
             );
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
-            handler.WriteToken(token);
+            return handler.WriteToken(token);
 
         }
     }
