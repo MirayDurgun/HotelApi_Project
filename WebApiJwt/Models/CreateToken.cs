@@ -26,7 +26,7 @@ namespace WebApiJwt.Models
                 // Token'in ne zaman kullanılabileceğini belirtir
                 notBefore: DateTime.Now,
                 // Token'in ne zaman geçersiz hale geleceğini belirtir
-                expires: DateTime.Now.AddMinutes(3),
+                expires: DateTime.Now.AddSeconds(20),
                 // JWT'nin imzalanması için kullanılacak kimlik bilgilerini sağlar
                 signingCredentials: credentials
             );
