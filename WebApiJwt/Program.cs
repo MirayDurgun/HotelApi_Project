@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidAudience = "http://localhost",
 
         // Issuer'ý doðrulamak için kullanýlacak anahtarý belirtir
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("aspnetcoreapiapi")),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("aspnetcoreapiapiaspnetcoreapiapi")),
 
         // Issuer'ýn imzalama anahtarýný doðrulamasýný saðlar
         ValidateIssuerSigningKey = true,

@@ -40,7 +40,7 @@ namespace WebApiJwt.Models
 
         public string TokenCrateAdmin()
         {
-            var bytes = Encoding.UTF8.GetBytes("aspnetcoreapiapi");
+            var bytes = Encoding.UTF8.GetBytes("aspnetcoreapiapiaspnetcoreapiapi");
             SymmetricSecurityKey key = new SymmetricSecurityKey(bytes);
             SigningCredentials credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             List<Claim> claims = new List<Claim>()
