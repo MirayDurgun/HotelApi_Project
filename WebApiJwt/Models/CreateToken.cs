@@ -11,7 +11,7 @@ namespace WebApiJwt.Models
         public string TokenCreate()
         {
             // Anahtar olarak kullanılacak string değerini UTF-8 formatına dönüştürür
-            var bytes = Encoding.UTF8.GetBytes("aspnetcoreapiapi");
+            var bytes = Encoding.UTF8.GetBytes("aspnetcoreapiapiaspnetcoreapiapi");
 
             // JWT'nin imzalanması için kullanılacak simetrik anahtarı oluşturur
             SymmetricSecurityKey key = new SymmetricSecurityKey(bytes);
