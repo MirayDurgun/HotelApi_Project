@@ -23,7 +23,7 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpPost] //yeni veri ekleme
-        public IActionResult AddService(Booking booking)
+        public IActionResult AddBooking(Booking booking)
         {
             _bookingService.TInsert(booking);
             return Ok();
