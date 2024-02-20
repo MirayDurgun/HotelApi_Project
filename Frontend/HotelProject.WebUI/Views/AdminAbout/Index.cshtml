@@ -7,7 +7,6 @@
 
 <table class="table table-bordered table-striped verticle-middle">
     <tr>
-        <th>#</th>
         <th>Başlık 1</th>
         <th>Başlık 2</th>
         <th>Güncelle</th>
@@ -15,10 +14,9 @@
     @foreach (var item in Model)
     {
         <tr>
-            <th>@item.AboutID</th>
             <td><span class="radient-1 btn-rounded">@item.Title1</span></td>
             <td>@item.Title2</td>
-            <td><a href="/About/UpdateAbout/@item.AboutID" class="btn mb-1 btn-rounded gradient-3">Güncelle</a></td>
+            <td><a href="/AdminAbout/UpdateAbout/@item.AboutID" class="btn mb-1 btn-rounded gradient-3">Güncelle</a></td>
         </tr>
 
     }
