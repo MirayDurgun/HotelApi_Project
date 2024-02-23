@@ -31,7 +31,10 @@ namespace HotelProject.WebUI
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
             services.AddHttpClient();
+
             services.AddTransient<IValidator<CreateGuestDto>, CreateGuestValidator>();
+            services.AddTransient<IValidator<UpdateGuestDto>, UpdateGuestValidator>();
+
             services.AddControllersWithViews().AddFluentValidation();
             services.AddAutoMapper(typeof(Startup));
 

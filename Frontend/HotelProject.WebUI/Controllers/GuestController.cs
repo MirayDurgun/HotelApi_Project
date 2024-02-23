@@ -46,9 +46,6 @@ namespace HotelProject.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
-
                 var client = _httpClientFactory.CreateClient();
                 var jsonData = JsonConvert.SerializeObject(createGuestDto);
                 StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -83,6 +80,7 @@ namespace HotelProject.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateGuest(int id)
         {
+
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"http://localhost:2077/api/Guest/{id}");
             //Güncelleyeceğimiz verileri GetAsync ile önce getiriyoruz
@@ -94,21 +92,29 @@ namespace HotelProject.WebUI.Controllers
                 return View(values);
             }
             return View();
+
         }
 
         [HttpPost]
         public async Task<IActionResult> UpdateGuest(UpdateGuestDto updateGuestDto)
         {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateGuestDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:2077/api/Guest/", stringContent);
-            //PutAsync bu şekilde tanımlanır $ ve idye gerek yok
-            if (responseMessage.IsSuccessStatusCode)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index");
+                var client = _httpClientFactory.CreateClient();
+                var jsonData = JsonConvert.SerializeObject(updateGuestDto);
+                StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                var responseMessage = await client.PutAsync("http://localhost:2077/api/Guest/", stringContent);
+                //PutAsync bu şekilde tanımlanır $ ve idye gerek yok
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
-            return View();
+            else
+            {
+                return View();
+            }
         }
     }
 }
