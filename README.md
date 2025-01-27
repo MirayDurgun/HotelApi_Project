@@ -1,5 +1,5 @@
 # HotelApi_Project
-Bu proje, AspNet Core 5.0 kullanılarak geliştirilmiş bir otel yönetim sistemi API'sini içermektedir. MSSQL veritabanı üzerinde çalışan backend tarafı, Restful API standartlarına uygun olarak tasarlanmıştır. Projede AspNet Identity, Swagger, Postman, Rapid Api entegrasyonu, Json Web Token, Fluent Validation gibi önemli konular detaylı bir şekilde ele alınmıştır.
+Devam etmekte olan Otel Yönetim Sistemi API, ASP.NET Core 5.0 ile geliştirilmiş, JWT ile güvenli kimlik doğrulama sağlanmış bir otel odası yönetimi ve rezervasyon çözümüdür. Rapid API ile API erişimi optimize edilmiş, AutoMapper ile veri dönüşümleri hızlandırılmıştır. Swagger ve Postman ile API testleri yapılırken, MSSQL veritabanı ve N-Tier Architecture kullanılarak güçlü ve ölçeklenebilir bir altyapı kurulmuştur
 
 ## Proje Aşamaları:
 * AspNet Core 5.0
